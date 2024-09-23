@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Clock
 
-## Getting Started
+This project is a simple **Digital Clock** component built using **React** and **TypeScript**. The clock displays the current time and allows the user to switch between 24-hour and 12-hour formats. The clock updates every second in real-time using `setInterval` inside a `useEffect` hook.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Real-time Clock**: The time is updated every second.
+- **24-Hour / 12-Hour Format Switch**: Users can toggle between 24-hour and 12-hour formats using buttons.
+- **Responsive UI**: The clock is centered on the screen, and the layout adapts to various screen sizes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React Functional Component**: Built using a functional component with `useState`, `useEffect`, and `useMemo` hooks.
+- **UI Components**: 
+  - **Card**: A UI card component that contains the clock.
+  - **Button**: Two buttons allow toggling between time formats.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Code Overview
 
-## Learn More
+### State Variables
+- `time`: Stores the current time (`Date` object) and is updated every second.
+- `is24Hour`: Boolean to switch between 24-hour and 12-hour formats.
+- `mounted`: Tracks whether the component has been mounted to prevent initial render issues.
 
-To learn more about Next.js, take a look at the following resources:
+### Key Hooks
+- **`useState`**: Manages the component state for time, time format, and mounted status.
+- **`useEffect`**: Sets up a timer with `setInterval` that updates the time every second.
+- **`useMemo`**: Memoizes the formatted time to avoid recalculating it on every render.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Time Formatting
+The `formattedTime` variable is derived using `useMemo` and formats the hours, minutes, and seconds based on the chosen time format (12-hour or 24-hour).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+- **Change the UI**: Modify the styles of the `Card` and `Button` components to suit your design preferences.
+- **Add more features**: You can enhance the clock by adding features like date display, timezone support, or custom themes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Screenshots
+
+### Digital Clock in 24-Hour Format:
+![24-Hour Format Screenshot](./screenshots/24-hour-format.png)
+
+### Digital Clock in 12-Hour Format:
+![12-Hour Format Screenshot](./screenshots/12-hour-format.png)
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript.
+- **Tailwind CSS (optional)**: For styling the UI components.
+- **Vercel**: You can deploy this project easily on Vercel.
+
+## Deployment
+[Live Demo 🔗](https://digital-clock-app-two.vercel.app)
